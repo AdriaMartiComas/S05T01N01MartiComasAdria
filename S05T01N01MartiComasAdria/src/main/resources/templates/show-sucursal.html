@@ -1,0 +1,56 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Sucursal</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+
+	<div class="container">
+	<h2>Sucursal</h2>
+		<hr/>
+	<table class="table table-bordered table-striped">
+
+			<thead>
+
+				<tr>
+					<th>Id</th>
+					<th>Nom</th>
+					<th>Pais</th>
+					<th>Tipus Sucursal</th>
+					<th>Accions</th>
+
+				</tr>
+
+			</thead>
+
+			<tbody>
+				<tr th:each="sucursalDTO: ${sucursalsDTO}">
+					<td th:text="${sucursalDTO.pk_SucursalID}"></td>
+					<td th:text="${sucursalDTO.nomSucursal}"></td>
+					<td th:text="${sucursalDTO.paisSucursal}"></td>
+					<td th:text="${sucursalDTO.tipusSucursal}"></td>
+					<td> 
+						<a th:href="@{/showUpdateForm(pk_SucursalID=${sucursalDTO.pk_SucursalID})}" class="btn btn-info">Actualitzar</a>
+						<a th:href="@{/deleteSucursal(pk_SucursalID=${sucursalDTO.pk_SucursalID})}" class="btn btn-danger ml-2">Eliminar</a>
+						
+						
+					</td>
+					
+
+
+				</tr>
+			</tbody>
+
+
+		</table>
+		
+		
+		<hr/>
+		<a th:href="@{/list}">Tornar</a>
+	</div>
+
+</body>
+
+
+</html>
